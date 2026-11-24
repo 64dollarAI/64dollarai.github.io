@@ -53,16 +53,17 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--ink);outline-offse
 
 /* sections */
 section{padding:clamp(40px,7vw,80px) 0 0}
-h1,h2,.tally dd,.entry .day,.entry .fig,.sheet .n,.face .serial{font-variation-settings:"opsz" 22}
+h1,h2,.entry .day,.face .serial{font-variation-settings:"opsz" 22}
 h2{font:600 clamp(1.7rem,3.6vw,2.5rem)/1.1 var(--display);letter-spacing:-.012em;margin:0 0 .5em}
 .lede{max-width:var(--measure);margin:0 0 1.6em}
 
 /* the sheet: one stamp per day, ten to a row */
 .sheet{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));border-top:1px dashed var(--ink);border-left:1px dashed var(--ink);background:var(--paper)}
 .sheet>*{position:relative;aspect-ratio:1;border-right:1px dashed var(--ink);border-bottom:1px dashed var(--ink);padding:6% 8%;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;min-width:0}
-.sheet .n{font:500 clamp(.7rem,1.7vw,1.15rem)/1 var(--display)}
+.sheet .n{font:600 clamp(.62rem,1.5vw,1rem)/1 var(--text)}
 .sheet .d{font-size:clamp(.5rem,1.25vw,.88rem);font-weight:600;line-height:1;white-space:nowrap}
-.sheet .todo .n{color:var(--rule)}
+.sheet .todo .n{color:var(--ink-soft);font-weight:400}
+.sheet .brief{display:none}
 .sheet a.gain{background:var(--green-wash)} .sheet a.loss{background:var(--red-wash)}
 .sheet a:hover{box-shadow:inset 0 0 0 2px var(--ink)}
 .sheet .now{box-shadow:inset 0 0 0 2px var(--ink)}
@@ -77,7 +78,7 @@ h2{font:600 clamp(1.7rem,3.6vw,2.5rem)/1.1 var(--display);letter-spacing:-.012em
 .duo .entry{grid-template-columns:1fr;border-bottom:1px solid var(--ink)}
 .duo .entry .date{margin:.7em 0 .8em}
 .duo .sheet .d{font-size:clamp(.5rem,.78vw,.74rem)}
-.duo .sheet .n{font-size:clamp(.7rem,1.15vw,1rem)}
+.duo .sheet .n{font-size:clamp(.62rem,1vw,.85rem)}
 
 /* ledger: diary entries */
 .entry{display:grid;grid-template-columns:11rem minmax(0,1fr);gap:8px clamp(20px,4vw,48px);padding:clamp(24px,4vw,40px) 0;border-top:1px solid var(--ink)}
@@ -119,7 +120,7 @@ footer p{margin:0;max-width:34rem}
   .entry{grid-template-columns:1fr}
   .entry .date{margin:.7em 0 .6em}
   .vids li{flex-direction:column;gap:2px}
-  .sheet .d{display:none}
+  .sheet .full{display:none} .sheet .brief{display:inline} .sheet .d{font-size:.56rem}
   .sheet a .n,.sheet .now .n{font-weight:700}
 }
 @media (prefers-reduced-motion:no-preference){
@@ -133,3 +134,43 @@ footer p{margin:0;max-width:34rem}
 .tip button:hover{background:var(--green)}
 .tip button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 @media (max-width:760px){.tip button{flex:1 1 100%;border-left:0;border-top:1px solid var(--ink)}}
+
+/* the desk */
+.chart{display:block;width:100%;height:auto}
+.chart .line{fill:none;stroke:var(--ink);stroke-width:3;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.chart .base{stroke:var(--ink-soft);stroke-width:1;stroke-dasharray:4 5;vector-effect:non-scaling-stroke}
+.chart .dot{fill:var(--green)}
+.chart .lab{font:500 22px var(--text);fill:var(--ink-soft)}
+.note .face:has(.chart){padding:clamp(12px,2vw,24px);display:flex;align-items:center}
+.book{width:100%;border-collapse:collapse;font-size:.98rem}
+.book th,.book td{text-align:left;padding:.65em .8em .65em 0;border-top:1px solid var(--rule);vertical-align:baseline}
+.book thead th{border-top:1px solid var(--ink);font-weight:500;color:var(--ink-soft);font-size:.9rem}
+.book tbody th{font-weight:600}
+.book td:last-child,.book th:last-child{padding-right:0}
+.scroll{overflow-x:auto}
+.log{list-style:none;margin:0;padding:0;max-width:52rem}
+.log li{display:grid;grid-template-columns:8.5rem minmax(0,1fr);gap:16px;padding:.75em 0;border-top:1px solid var(--rule)}
+.log time{color:var(--ink-soft);font-size:.95rem;white-space:nowrap}
+.pitch{margin-top:clamp(28px,5vw,48px);border:1px dashed var(--ink);padding:clamp(18px,3vw,28px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px 32px}
+.pitch p{margin:0;max-width:40rem}
+.pitch a{font-weight:600;white-space:nowrap}
+@media (max-width:760px){.log li{grid-template-columns:1fr;gap:2px}.mast{flex-wrap:wrap}.mast nav{gap:16px;font-size:.9rem}}
+
+/* follow */
+.follow{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:600;padding:14px 22px}
+.btn:hover{background:var(--green)}
+.btn2{font-weight:600}
+.entry h2.day{font-size:clamp(2.4rem,4.4vw,3.2rem)}
+
+/* doors to the other pages, tip jar */
+.doors{margin-top:clamp(40px,7vw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(10.5rem,1fr));border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
+.doors a{display:block;text-decoration:none;padding:20px 20px 24px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.doors a:hover{background:var(--paper-deep)}
+.doors b{display:block;font:600 1.45rem/1.15 var(--display);font-variation-settings:"opsz" 22;margin-bottom:.35em}
+.doors span{color:var(--ink-soft);font-size:.95rem}
+.jar{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:start}
+.jar img{display:block;border:1px solid var(--ink);padding:6px;background:var(--paper);width:min(260px,60vw);height:auto;image-rendering:pixelated}
+.jar p{max-width:var(--measure);margin:0 0 1em}
+.jar .tip{margin-bottom:1em}
+@media (max-width:760px){.jar{grid-template-columns:1fr}}
