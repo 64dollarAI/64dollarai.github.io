@@ -125,3 +125,11 @@ footer p{margin:0;max-width:34rem}
 @media (prefers-reduced-motion:no-preference){
   .sheet a,.mast nav a{transition:box-shadow .15s,border-color .15s}
 }
+
+/* tip address */
+.tip{display:flex;flex-wrap:wrap;align-items:stretch;border:1px solid var(--ink);max-width:46rem}
+.tip code{flex:1 1 20rem;padding:14px 16px;font:500 .95rem/1.5 var(--text);overflow-wrap:anywhere;user-select:all;background:var(--paper)}
+.tip button{flex:0 0 auto;font:600 .95rem/1 var(--text);color:var(--paper);background:var(--ink);border:0;border-left:1px solid var(--ink);padding:14px 20px;cursor:pointer}
+.tip button:hover{background:var(--green)}
+.tip button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+@media (max-width:760px){.tip button{flex:1 1 100%;border-left:0;border-top:1px solid var(--ink)}}
