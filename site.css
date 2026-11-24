@@ -174,3 +174,14 @@ footer p{margin:0;max-width:34rem}
 .jar p{max-width:var(--measure);margin:0 0 1em}
 .jar .tip{margin-bottom:1em}
 @media (max-width:760px){.jar{grid-template-columns:1fr}}
+
+/* kit */
+.demo{display:block;width:100%;max-width:300px;aspect-ratio:9/16;background:var(--ink);border:1px solid var(--ink)}
+.pay{margin:0 0 1.2em;max-width:46rem;border-top:1px solid var(--ink)}
+.pay div{display:grid;grid-template-columns:8.5rem minmax(0,1fr);gap:12px;padding:.8em 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.pay dt{color:var(--ink-soft);font-size:.95rem} .pay dd{margin:0;font-weight:600;overflow-wrap:anywhere}
+.pay code,.rules code{font:500 .92rem/1.5 var(--text);background:var(--paper-deep);padding:.1em .35em}
+.pay button{font:600 .85rem/1 var(--text);background:none;border:1px solid var(--ink);color:var(--ink);padding:6px 10px;margin-left:8px;cursor:pointer}
+.pay button:hover{background:var(--ink);color:var(--paper)}
+[hidden]{display:none!important}
+@media (max-width:760px){.pay div{grid-template-columns:1fr;gap:2px}}
